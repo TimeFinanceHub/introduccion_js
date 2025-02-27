@@ -11,8 +11,9 @@
 <body>
 
     <div class="contenido">
-        <h1>New Topic: JavaScript Beginners Crash Course - Daily Timer</h1>
+        <h3>New Topic: JavaScript Beginners Crash Course - Daily Timer</h3>
         <div id="timer"></div>
+        <div class="confetti-container" id="confetti"></div>
     </div>
 
     <div class="contenido">
@@ -84,24 +85,41 @@
 
     <script>
         function updateTimer() {
-          const now = new Date();
-          const start = new Date(now);
-          start.setHours(8, 0, 0, 0); // 8:00 AM
+          fetch('/time') // Assuming you have a server endpoint /time that returns the current time in ISO format
+            .then(response => response.json())
+            .then(data => {
+              const now = new Date(data.time);
     
-          const end = new Date(now);
-          end.setHours(20, 0, 0, 0); // 8:00 PM
+              const end = new Date(now);
+              end.setHours(20, 0, 0, 0); // 8:00 PM
     
-          let hours = 0;
+              if (now < end) {
+                const diff = end - now;
+                const hours = Math.floor(diff / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById("timer").textContent = `Time remaining: ${hours}h ${minutes}m`;
+              } else {
+                document.getElementById("timer").textContent = `Timer stopped. Will restart tomorrow at 8:00 AM.`;
+              }
+            })
+            .catch(error => {
+              console.error("Error fetching server time:", error);
+            });
+        }
     
-          if (now >= start && now < end) {
-            // Timer is running
-            hours = Math.floor((now - start) / (1000 * 60 * 60));
-            document.getElementById("timer").textContent = `Hours elapsed: ${hours}`;
-          } else if(now >= end){
-            document.getElementById("timer").textContent = `Timer stopped. Will restart at 8:00 AM.`;
-          } else {
-            document.getElementById("timer").textContent = `Timer will start at 8:00 AM.`;
+        function startConfetti() {
+          const confettiContainer = document.getElementById("confetti");
+          for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement("div");
+            confetti.className = "confetti";
+            confetti.style.left = `${Math.random() * 100}vw`;
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            confetti.style.animationDelay = `${Math.random() * 5}s`;
+            confettiContainer.appendChild(confetti);
           }
+          setTimeout(() => {
+            confettiContainer.innerHTML = "";
+          }, 5000); // Remove confetti after 5 seconds
         }
     
         // Update the timer every minute
@@ -109,7 +127,9 @@
     
         // Initial update
         updateTimer();
-    </script>
+        startConfetti();
+    
+      </script>
 
 </body>
 </html>
