@@ -11,13 +11,13 @@
 <body>
 
     <div class="contenido">
-        <h3>New Topic: JavaScript Beginners Crash Course - Daily Timer</h3>
+        <h1>JavaScript Beginners Crash Course - Next Topic Countdown</h1>
         <div id="timer"></div>
         <div class="confetti-container" id="confetti"></div>
     </div>
 
     <div class="contenido">
-        <h1>Desarrollo Web Completo <img src="./logo//logojs.png" alt="logo" width="150" height="150"></h1>
+        <h2>Desarrollo Web Completo <img src="./logo//logojs.png" alt="logo" width="150" height="150"></h2>
         <a href="https://versoftly.github.io/justplayad/" target="_blank">Ramiro's practicas.</a>
         <p>Introducción a JavaScript</p>
         <p class="hashtag">#DesarrolloWebCompleto</p>
@@ -85,41 +85,50 @@
 
     <script>
         function updateTimer() {
-            const now = new Date();
-            const end = new Date(now);
-            end.setHours(20, 0, 0, 0); // 8:00 PM
+      const now = new Date();
+      const day = now.getDay();
+      const hour = now.getHours();
 
-            if (now < end) {
-                const diff = end - now;
-                const hours = Math.floor(diff / (1000 * 60 * 60));
-                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                document.getElementById("timer").textContent = `Time remaining: ${hours}h ${minutes}m`;
-            } else {
-                document.getElementById("timer").textContent = `Timer stopped. Will restart tomorrow at 8:00 AM.`;
-            }
+      // Check if it's Monday to Friday
+      if (day >= 1 && day <= 5) {
+        const nextWritingTime = new Date(now);
+        nextWritingTime.setHours(20, 0, 0, 0); // 8:00 PM
+
+        if (now < nextWritingTime) {
+          const diff = nextWritingTime - now;
+          const hours = Math.floor(diff / (1000 * 60 * 60));
+          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+          document.getElementById("timer").textContent = `Next topic writing in: ${hours}h ${minutes}m ${seconds}s`;
+        } else {
+          document.getElementById("timer").textContent = "Writing the next topic now!";
         }
+      } else {
+        document.getElementById("timer").textContent = "Writing resumes Monday at 8:00 PM.";
+      }
+    }
 
-        function startConfetti() {
-            const confettiContainer = document.getElementById("confetti");
-            for (let i = 0; i < 100; i++) {
-                const confetti = document.createElement("div");
-                confetti.className = "confetti";
-                confetti.style.left = `${Math.random() * 100}vw`;
-                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-                confetti.style.animationDelay = `${Math.random() * 5}s`;
-                confettiContainer.appendChild(confetti);
-            }
-            setTimeout(() => {
-                confettiContainer.innerHTML = "";
-            }, 5000); // Remove confetti after 5 seconds
-        }
+    function startConfetti() {
+      const confettiContainer = document.getElementById("confetti");
+      for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement("div");
+        confetti.className = "confetti";
+        confetti.style.left = `${Math.random() * 100}vw`;
+        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        confetti.style.animationDelay = `${Math.random() * 5}s`;
+        confettiContainer.appendChild(confetti);
+      }
+      setTimeout(() => {
+        confettiContainer.innerHTML = "";
+      }, 5000);
+    }
 
-        // Update the timer every minute
-        setInterval(updateTimer, 60000);
+    // Update the timer every second
+    setInterval(updateTimer, 1000);
 
-        // Initial update
-        updateTimer();
-        startConfetti();
+    // Initial update and confetti
+    updateTimer();
+    startConfetti();
     </script>
 
 </body>
