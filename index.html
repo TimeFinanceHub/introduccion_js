@@ -112,14 +112,16 @@
             const now = new Date();
             const day = now.getDay();
             const hour = now.getHours();
-            const minute = now.getMinutes();
 
             // Check if it's Monday to Friday
             if (day >= 1 && day <= 5) {
                 const nextWritingTime = new Date(now);
                 nextWritingTime.setHours(20, 0, 0, 0); // 8:00 PM
 
-                if (now < nextWritingTime) {
+                const resetTime = new Date(now);
+                resetTime.setHours(8, 0, 0, 0); //8:00 AM.
+
+                if (now < nextWritingTime && now > resetTime) {
                     const diff = nextWritingTime - now;
                     const hours = Math.floor(diff / (1000 * 60 * 60));
                     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -128,7 +130,7 @@
                 } else {
                     document.getElementById("timer").textContent = "Writing the next topic now!";
                     startConfetti(); // Start confetti when it reaches 8 PM
-                    resetTimer(); // Reset the timer after reaching 8 PM
+                    resetTimer(); // Reset the timer after reaching 8 PM or before 8am.
                 }
             } else {
                 document.getElementById("timer").textContent = "Writing resumes Monday at 8:00 PM.";
