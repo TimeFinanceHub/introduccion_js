@@ -108,29 +108,39 @@
     </div>
 
   <script>
-     function updateTimer() {
+function updateTimer() {
             const now = new Date();
             const day = now.getDay();
             const hour = now.getHours();
+            const minute = now.getMinutes();
 
             // Check if it's Monday to Friday
             if (day >= 1 && day <= 5) {
-                const nextWritingTime = new Date(now);
-                nextWritingTime.setHours(20, 0, 0, 0); // 8:00 PM
+                const writingStartTime = new Date(now);
+                writingStartTime.setHours(20, 0, 0, 0); // 8:00 PM
 
-                const resetTime = new Date(now);
-                resetTime.setHours(8, 0, 0, 0); //8:00 AM.
+                const writingEndTime = new Date(now);
+                writingEndTime.setHours(20, 30, 0, 0); // 8:30 PM
 
-                if (now < nextWritingTime && now > resetTime) {
-                    const diff = nextWritingTime - now;
+                if (now >= writingStartTime && now < writingEndTime) {
+                    document.getElementById("timer").textContent = "Writing the next topic now!";
+                    startConfetti(); //confetti from 8:00 to 8:30pm
+                } else if (now < writingStartTime){
+                    const diff = writingStartTime - now;
                     const hours = Math.floor(diff / (1000 * 60 * 60));
                     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
                     document.getElementById("timer").textContent = `Next topic writing in: ${hours}h ${minutes}m ${seconds}s`;
                 } else {
-                    document.getElementById("timer").textContent = "Writing the next topic now!";
-                    startConfetti(); // Start confetti when it reaches 8 PM
-                    resetTimer(); // Reset the timer after reaching 8 PM or before 8am.
+                  const nextDayWriting = new Date(now);
+                  nextDayWriting.setDate(nextDayWriting.getDate() + 1);
+                  nextDayWriting.setHours(20, 0, 0, 0);
+
+                  const diff = nextDayWriting - now;
+                  const hours = Math.floor(diff / (1000 * 60 * 60));
+                  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                  document.getElementById("timer").textContent = `Next topic writing in: ${hours}h ${minutes}m ${seconds}s`;
                 }
             } else {
                 document.getElementById("timer").textContent = "Writing resumes Monday at 8:00 PM.";
@@ -139,7 +149,7 @@
 
         function startConfetti() {
             const confettiContainer = document.getElementById("confetti");
-            confettiContainer.innerHTML = ''; // Clear previous confetti
+            confettiContainer.innerHTML = '';
             for (let i = 0; i < 100; i++) {
                 const confetti = document.createElement("div");
                 confetti.className = "confetti";
@@ -151,11 +161,6 @@
             setTimeout(() => {
                 confettiContainer.innerHTML = "";
             }, 5000);
-        }
-
-        function resetTimer() {
-            // Wait for 5 seconds after reaching 8 PM to start again.
-            setTimeout(updateTimer, 5000);
         }
 
         // Update the timer every second
