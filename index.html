@@ -80,11 +80,35 @@
     <hr>
 
     <div class="contenido">
-
+      <h2>let y const la nueva forma de crear variables <img src="./logo//logojs.png" alt="logo" width="150" height="150"> </h2>
+      <p>
+        al igual que var las variables con let puedes asignarles un valor let var = 'valor';
+        o no, let var; y es correcto el programa no te mostrara ningun error de sintaxis.
+        respecto a los numeros y caracteres las reglas son las mismas.
+      </p>
+      <h3><em>constantes y variables</em></h3>
+      <p>
+        La palabra reservada const marca la diferencia,
+        al utilizar const no puedes dejar la variable sin valor,
+        es obligatorio inicializar la variable con algun valor al momento de su definici&oacute;n.
+        si tu objetivo es mantener un variable inmutable se recomienda utilizar const de lo contrario 
+        utiliza let.
+      </p>
+      <p>
+        En conclusion la diferencia entre const y let es que const 
+        debe de ser inicializada desde el inicio con un valor y let no.
+        otra diferencia es que no se puede reasignar el valor 
+        (es inmutable osea no se puede combiar una ves que este es asignado),
+        mientras que let su valor puede ser modificado en algun otro proceso del programa.
+      </p>
+      <p>
+        usualmente se utiliza mas const en proyectos cuando 
+        se necesita un valor fijo en varios procesos del programa. 
+      </p>
     </div>
 
-    <script>
-        function updateTimer() {
+  <script>
+      function updateTimer() {
       const now = new Date();
       const day = now.getDay();
       const hour = now.getHours();
@@ -129,7 +153,7 @@
     // Initial update and confetti
     updateTimer();
     startConfetti();
-    </script>
+  </script>
 
 </body>
 </html>
