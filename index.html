@@ -108,51 +108,59 @@
     </div>
 
   <script>
-      function updateTimer() {
-      const now = new Date();
-      const day = now.getDay();
-      const hour = now.getHours();
+     function updateTimer() {
+            const now = new Date();
+            const day = now.getDay();
+            const hour = now.getHours();
+            const minute = now.getMinutes();
 
-      // Check if it's Monday to Friday
-      if (day >= 1 && day <= 5) {
-        const nextWritingTime = new Date(now);
-        nextWritingTime.setHours(20, 0, 0, 0); // 8:00 PM
+            // Check if it's Monday to Friday
+            if (day >= 1 && day <= 5) {
+                const nextWritingTime = new Date(now);
+                nextWritingTime.setHours(20, 0, 0, 0); // 8:00 PM
 
-        if (now < nextWritingTime) {
-          const diff = nextWritingTime - now;
-          const hours = Math.floor(diff / (1000 * 60 * 60));
-          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-          document.getElementById("timer").textContent = `Next topic writing in: ${hours}h ${minutes}m ${seconds}s`;
-        } else {
-          document.getElementById("timer").textContent = "Writing the next topic now!";
+                if (now < nextWritingTime) {
+                    const diff = nextWritingTime - now;
+                    const hours = Math.floor(diff / (1000 * 60 * 60));
+                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                    document.getElementById("timer").textContent = `Next topic writing in: ${hours}h ${minutes}m ${seconds}s`;
+                } else {
+                    document.getElementById("timer").textContent = "Writing the next topic now!";
+                    startConfetti(); // Start confetti when it reaches 8 PM
+                    resetTimer(); // Reset the timer after reaching 8 PM
+                }
+            } else {
+                document.getElementById("timer").textContent = "Writing resumes Monday at 8:00 PM.";
+            }
         }
-      } else {
-        document.getElementById("timer").textContent = "Writing resumes Monday at 8:00 PM.";
-      }
-    }
 
-    function startConfetti() {
-      const confettiContainer = document.getElementById("confetti");
-      for (let i = 0; i < 100; i++) {
-        const confetti = document.createElement("div");
-        confetti.className = "confetti";
-        confetti.style.left = `${Math.random() * 100}vw`;
-        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-        confetti.style.animationDelay = `${Math.random() * 5}s`;
-        confettiContainer.appendChild(confetti);
-      }
-      setTimeout(() => {
-        confettiContainer.innerHTML = "";
-      }, 5000);
-    }
+        function startConfetti() {
+            const confettiContainer = document.getElementById("confetti");
+            confettiContainer.innerHTML = ''; // Clear previous confetti
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement("div");
+                confetti.className = "confetti";
+                confetti.style.left = `${Math.random() * 100}vw`;
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                confetti.style.animationDelay = `${Math.random() * 5}s`;
+                confettiContainer.appendChild(confetti);
+            }
+            setTimeout(() => {
+                confettiContainer.innerHTML = "";
+            }, 5000);
+        }
 
-    // Update the timer every second
-    setInterval(updateTimer, 1000);
+        function resetTimer() {
+            // Wait for 5 seconds after reaching 8 PM to start again.
+            setTimeout(updateTimer, 5000);
+        }
 
-    // Initial update and confetti
-    updateTimer();
-    startConfetti();
+        // Update the timer every second
+        setInterval(updateTimer, 1000);
+
+        // Initial update
+        updateTimer();
   </script>
 
 </body>
