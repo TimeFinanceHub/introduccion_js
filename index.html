@@ -148,40 +148,56 @@
       </p>
     </div>
 
+    <div class="contenido">
+       <h2><img src="./logo//logojs.png" alt="logo" width="150" height="150"> Metodos para cadenas de caracteres</h2>
+       <p>
+         
+       </p>
+    </div>
+
   <script>
-    function updateTimer() {
+     function updateTimer() {
             const now = new Date();
             const day = now.getDay();
             const hour = now.getHours();
             const minute = now.getMinutes();
 
-            // Check if it's Monday to Friday
+            const writingStartTime = new Date(now);
+            writingStartTime.setHours(20, 0, 0, 0); // 8:00 PM
+
+            const writingEndTime = new Date(now);
+            writingEndTime.setHours(20, 30, 0, 0); // 8:30 PM
+
             if (day >= 1 && day <= 5) {
-                const writingStartTime = new Date(now);
-                writingStartTime.setHours(20, 0, 0, 0); // 8:00 PM
-
-                const writingEndTime = new Date(now);
-                writingEndTime.setHours(20, 30, 0, 0); // 8:30 PM
-
                 if (now >= writingStartTime && now < writingEndTime) {
                     document.getElementById("timer").textContent = "Writing the next topic now!";
-                    startConfetti(); //confetti from 8:00 to 8:30pm
-                } else if (now < writingStartTime){
+                    startConfetti();
+                } else if (now < writingStartTime) {
                     const diff = writingStartTime - now;
                     const hours = Math.floor(diff / (1000 * 60 * 60));
                     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
                     document.getElementById("timer").textContent = `Next topic writing in: ${hours}h ${minutes}m ${seconds}s`;
                 } else {
-                  const nextDayWriting = new Date(now);
-                  nextDayWriting.setDate(nextDayWriting.getDate() + 1);
-                  nextDayWriting.setHours(20, 0, 0, 0);
+                    if (day === 5) { // Friday after 8:30 PM
+                        const nextMonday = new Date(now);
+                        nextMonday.setDate(nextMonday.getDate() + (1 + 7 - nextMonday.getDay()) % 7); // Calculate next Monday
+                        nextMonday.setHours(8, 0, 0, 0);
 
-                  const diff = nextDayWriting - now;
-                  const hours = Math.floor(diff / (1000 * 60 * 60));
-                  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-                  document.getElementById("timer").textContent = `Next topic writing in: ${hours}h ${minutes}m ${seconds}s`;
+                        const formattedDate = nextMonday.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+
+                        document.getElementById("timer").textContent = `Next topic countdown will start ${formattedDate}.`;
+                    } else { // Monday to Thursday after 8:30 PM
+                        const nextDayWriting = new Date(now);
+                        nextDayWriting.setDate(nextDayWriting.getDate() + 1);
+                        nextDayWriting.setHours(20, 0, 0, 0);
+
+                        const diff = nextDayWriting - now;
+                        const hours = Math.floor(diff / (1000 * 60 * 60));
+                        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                        document.getElementById("timer").textContent = `Next topic writing in: ${hours}h ${minutes}m ${seconds}s`;
+                    }
                 }
             } else {
                 document.getElementById("timer").textContent = "Writing resumes Monday at 8:00 PM.";
