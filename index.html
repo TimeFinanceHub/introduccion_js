@@ -11,8 +11,8 @@
 <body>
 
   <div class="contenido">
-      <h1>JavaScript Beginners Crash Course - Next Topic Countdown</h1>
-      <div id="timer"></div>
+      <!-- <h1>JavaScript Beginners Crash Course - Next Topic Countdown</h1>
+      <div id="timer"></div> -->
       <div class="confetti-container" id="confetti"></div>
   </div>
 
@@ -341,7 +341,7 @@
   </div>
 
   <script>
-     function updateTimer() {
+     /*function updateTimer() {
             const now = new Date();
             const day = now.getDay();
             const hour = now.getHours();
@@ -388,7 +388,7 @@
                 document.getElementById("timer").textContent = "Writing resumes Monday at 8:00 PM.";
             }
         }
-
+*/
         function startConfetti() {
             const confettiContainer = document.getElementById("confetti");
             confettiContainer.innerHTML = '';
@@ -405,11 +405,12 @@
             }, 5000);
         }
 
-        // Update the timer every second
+       /* // Update the timer every second
         setInterval(updateTimer, 1000);
 
         // Initial update
-        updateTimer();
+        updateTimer();*/
+        startConfetti();
   </script>
 
 </body>
