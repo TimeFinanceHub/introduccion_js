@@ -11,6 +11,102 @@
 <body>
 
   <div class="contenido">
+    <button id="myBtn">¿Qué es El Evangelio de Jesucristo?</button>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1>Cuestionario</h1>
+  
+        <h2>¿Qué es El Evangelio de Jesucristo?</h2>
+  
+        <p>
+          <b>mis palabras</b>
+          <em>
+            Liberacion del pecado y
+            La muerte Para todo El 
+            Genero humano, mediante 
+            La reconciliacion con 
+            Dios. Toda la humanidad
+            Resucitara por la ayuda 
+            Y fortaleza divinas.
+            (Amor de Jesucristo).
+          </em>
+        </p>
+  
+        <h2>¿Qué significa tener fe y como le fortalece la fe?</h2>
+  
+        <p>
+          <b>mis palabras</b>
+          <em>
+            Significa creer en 
+            Jesucristo , me fortalece 
+            Como una Motivacion para 
+            Ser un humano perfecto.
+          </em>
+        </p>
+  
+        <h2>¿Qué significa arrepentirse y porque todos tienen necesidad de arrepentirse?</h2>
+  
+        <p>
+          <b>mis palabras</b>
+          <em>
+           Significa aceptacion de 
+           Que todos somos pecadores.
+           Porque somos humanos.
+          </em>
+        </p>
+  
+        <h2>¿Por qué todos tienen necesidad de ser bautizados?</h2>
+  
+        <p>
+          <b>mis palabras</b>
+          <em>
+            Por que todos necesitan 
+            Estar preparados Para
+            Recibir al espiritu 
+            Santo.
+          </em>
+        </p>
+  
+        <h2>¿Qué es el espiritu santo y cómo es el espiritu santo una bendicion en su vida?</h2>
+  
+        <p>
+          <b>mis palabras</b>
+          <em>
+           El espiritu santo es la 
+           Santificacion y 
+           Purificacion despues de 
+           Quedar limpio de 
+           Pecados, en mi vida el 
+           Espiritu santo es 
+           Lealtad.
+          </em>
+        </p>
+  
+        <h2>¿Cuál es el propósito de la Santa Cena?</h2>
+  
+        <p>
+          <b>mis palabras</b>
+          <em>
+            Es Un servicio de
+            Ordenanza que se 
+            Lleva a Cabo 
+            Cada semana.
+          </em>
+        </p>
+  
+        <h2>Qué significa perseverar hasta el fin?</h2>
+  
+        <p>
+          <b>mis palabras</b>
+          <em>
+           Continuar con el ejemplo
+           De Jesucristo.
+          </em>
+        </p>
+      </div>
+    </div>
       <!-- <h1>JavaScript Beginners Crash Course - Next Topic Countdown</h1>
       <div id="timer"></div> -->
       <div class="confetti-container" id="confetti"></div>
@@ -356,6 +452,31 @@
   </audio>
 
   <script>
+     // Get the modal
+     var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
      /*function updateTimer() {
             const now = new Date();
             const day = now.getDay();
