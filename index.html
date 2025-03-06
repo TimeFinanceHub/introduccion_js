@@ -477,6 +477,24 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+function bounceButton(buttonId) {
+  const button = document.getElementById(buttonId);
+  if (!button) {
+    console.error(`Button with ID '${buttonId}' not found.`);
+    return;
+  }
+
+  button.style.animation = 'none'; // Reset animation
+  button.offsetHeight; // Trigger reflow to apply reset
+  button.style.animation = 'bounce 0.8s ease-in-out';
+
+  button.addEventListener('animationend', () => {
+    button.style.animation = 'none'; // Remove inline animation style after it completes
+  }, { once: true }); // Make sure the event listener only runs once.
+}
+
+bounceButton('myBtn');
      /*function updateTimer() {
             const now = new Date();
             const day = now.getDay();
