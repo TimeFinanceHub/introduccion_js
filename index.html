@@ -457,47 +457,45 @@
 
   <div class="contenido">
     <h2>Object.methods <img src="./logo//logojs.png" alt="logo" width="150" height="150"></h2>
-    <pre>
-      "use strict";
-
-      const objeto = {
-          propiedad : "valor"
-      }
-
-      console.log(objeto);
-
-      Object.freeze(objeto);
-
-      //modificar el valor de la propieda de un objeto
-      objeto.propiedad = "new value";
-
-      console.log(objeto);
-
-      /**
-      * Una caracteristica de los objetos 
-      * es que no importa si los creamos con let o const
-      * es posible modificarlos, para evitar 
-      * esto , podemos utilizar las funciones freeze o seal,
-      * y para comprobar si el objeto ha sido modificado
-      * por alguna de esas funciones tenemos isFrozen y isSealed
-      * 
-      * una de las diferencias entre seal y freeze es que seal 
-      * si te permite modificar las pripiedades existentes.
-      * 
-      * para que en la consola nos aparesca el error al 
-      * tratar de modificar algun objeto despues de ser
-      * procesado por seal o freeze utilizamos "use strict";
+      <p>"use strict";<br>
+        <br>
+      const objeto = {<br>
+          propiedad : "valor"<br>
+      }<br>
+      <br>
+      console.log(objeto);<br>
+      <br>
+      Object.freeze(objeto);<br>
+      <br>
+      //modificar el valor de la propieda de un objeto<br>
+      objeto.propiedad = "new value";<br>
+      <br>
+      console.log(objeto);</p>
+      <p>
+      /**<br>
+      * Una caracteristica de los objetos <br>
+      * es que no importa si los creamos con let o const<br>
+      * es posible modificarlos, para evitar <br>
+      * esto , podemos utilizar las funciones freeze o seal,<br>
+      * y para comprobar si el objeto ha sido modificado<br>
+      * por alguna de esas funciones tenemos isFrozen y isSealed<br>
+      * <br>
+      * una de las diferencias entre seal y freeze es que seal <br>
+      * si te permite modificar las pripiedades existentes.<br>
+      * <br>
+      * para que en la consola nos aparesca el error al <br>
+      * tratar de modificar algun objeto despues de ser<br>
+      * procesado por seal o freeze utilizamos "use strict";<br>
       */
-
-      const variable = "valor de la variable";
-
-      console.log(variable);
-
-      //modificar el valor de la variable
-      variable = "nuevo valor de la variable";
-
-      console.log(variable);
-    </pre>
+      </p><p>
+      const variable = "valor de la variable";<br>
+      <br>
+      console.log(variable);<br>
+      <br>
+      //modificar el valor de la variable<br>
+      variable = "nuevo valor de la variable";<br>
+      <br>
+      console.log(variable);</p>
   </div>
 
   <a id="music"></a>
