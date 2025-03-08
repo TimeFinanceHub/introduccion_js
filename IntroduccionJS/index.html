@@ -7,8 +7,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap" 
     rel="stylesheet"> 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../extra/menuNav.css">
 </head>
 <body>
+
+  <nav class="navbar">
+    <div class="logo"><img src="./logo/logo.png" alt="logo" width="30%"></div>
+    <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="../leccion_118/leccion_118.html">leccion 118 Arrays en javacript</a></li>
+    </ul>
+    <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+  </nav>
 
   <div class="contenido">
       <!-- <h1>JavaScript Beginners Crash Course - Next Topic Countdown</h1>
@@ -530,9 +544,12 @@
     <source src="./mp3/DJ-GZG-RAP-HIPHOP-RNB-PART6.mp3" type="audio/mpeg">
   </audio>
 
+  <script src="../extra/unirObjetos.js"></script>
+  <script src="../extra/menuNav.js"></script>
+
   <script>
-     // Get the modal
-     var modal = document.getElementById("myModal");
+    // Get the modal
+    var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
@@ -542,111 +559,109 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
-  modal.style.display = "block";
+ modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-  modal.style.display = "none";
+ modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+ if (event.target == modal) {
+   modal.style.display = "none";
+ }
 }
 
 function bounceButton(buttonId) {
-  const button = document.getElementById(buttonId);
-  if (!button) {
-    console.error(`Button with ID '${buttonId}' not found.`);
-    return;
-  }
+ const button = document.getElementById(buttonId);
+ if (!button) {
+   console.error(`Button with ID '${buttonId}' not found.`);
+   return;
+ }
 
-  button.style.animation = 'none'; // Reset animation
-  button.offsetHeight; // Trigger reflow to apply reset
-  button.style.animation = 'bounce 0.8s ease-in-out';
+ button.style.animation = 'none'; // Reset animation
+ button.offsetHeight; // Trigger reflow to apply reset
+ button.style.animation = 'bounce 0.8s ease-in-out';
 
-  button.addEventListener('animationend', () => {
-    button.style.animation = 'none'; // Remove inline animation style after it completes
-  }, { once: true }); // Make sure the event listener only runs once.
+ button.addEventListener('animationend', () => {
+   button.style.animation = 'none'; // Remove inline animation style after it completes
+ }, { once: true }); // Make sure the event listener only runs once.
 }
 
 bounceButton('myBtn');
-     /*function updateTimer() {
-            const now = new Date();
-            const day = now.getDay();
-            const hour = now.getHours();
-            const minute = now.getMinutes();
+    /*function updateTimer() {
+           const now = new Date();
+           const day = now.getDay();
+           const hour = now.getHours();
+           const minute = now.getMinutes();
 
-            const writingStartTime = new Date(now);
-            writingStartTime.setHours(20, 0, 0, 0); // 8:00 PM
+           const writingStartTime = new Date(now);
+           writingStartTime.setHours(20, 0, 0, 0); // 8:00 PM
 
-            const writingEndTime = new Date(now);
-            writingEndTime.setHours(20, 30, 0, 0); // 8:30 PM
+           const writingEndTime = new Date(now);
+           writingEndTime.setHours(20, 30, 0, 0); // 8:30 PM
 
-            if (day >= 1 && day <= 5) {
-                if (now >= writingStartTime && now < writingEndTime) {
-                    document.getElementById("timer").textContent = "Writing the next topic now!";
-                    startConfetti();
-                } else if (now < writingStartTime) {
-                    const diff = writingStartTime - now;
-                    const hours = Math.floor(diff / (1000 * 60 * 60));
-                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-                    document.getElementById("timer").textContent = `Next topic writing in: ${hours}h ${minutes}m ${seconds}s`;
-                } else {
-                    if (day === 5) { // Friday after 8:30 PM
-                        const nextMonday = new Date(now);
-                        nextMonday.setDate(nextMonday.getDate() + (1 + 7 - nextMonday.getDay()) % 7); // Calculate next Monday
-                        nextMonday.setHours(8, 0, 0, 0);
+           if (day >= 1 && day <= 5) {
+               if (now >= writingStartTime && now < writingEndTime) {
+                   document.getElementById("timer").textContent = "Writing the next topic now!";
+                   startConfetti();
+               } else if (now < writingStartTime) {
+                   const diff = writingStartTime - now;
+                   const hours = Math.floor(diff / (1000 * 60 * 60));
+                   const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                   const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                   document.getElementById("timer").textContent = `Next topic writing in: ${hours}h ${minutes}m ${seconds}s`;
+               } else {
+                   if (day === 5) { // Friday after 8:30 PM
+                       const nextMonday = new Date(now);
+                       nextMonday.setDate(nextMonday.getDate() + (1 + 7 - nextMonday.getDay()) % 7); // Calculate next Monday
+                       nextMonday.setHours(8, 0, 0, 0);
 
-                        const formattedDate = nextMonday.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+                       const formattedDate = nextMonday.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
 
-                        document.getElementById("timer").textContent = `Next topic countdown will start ${formattedDate}.`;
-                    } else { // Monday to Thursday after 8:30 PM
-                        const nextDayWriting = new Date(now);
-                        nextDayWriting.setDate(nextDayWriting.getDate() + 1);
-                        nextDayWriting.setHours(20, 0, 0, 0);
+                       document.getElementById("timer").textContent = `Next topic countdown will start ${formattedDate}.`;
+                   } else { // Monday to Thursday after 8:30 PM
+                       const nextDayWriting = new Date(now);
+                       nextDayWriting.setDate(nextDayWriting.getDate() + 1);
+                       nextDayWriting.setHours(20, 0, 0, 0);
 
-                        const diff = nextDayWriting - now;
-                        const hours = Math.floor(diff / (1000 * 60 * 60));
-                        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-                        document.getElementById("timer").textContent = `Next topic writing in: ${hours}h ${minutes}m ${seconds}s`;
-                    }
-                }
-            } else {
-                document.getElementById("timer").textContent = "Writing resumes Monday at 8:00 PM.";
-            }
-        }
+                       const diff = nextDayWriting - now;
+                       const hours = Math.floor(diff / (1000 * 60 * 60));
+                       const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                       const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                       document.getElementById("timer").textContent = `Next topic writing in: ${hours}h ${minutes}m ${seconds}s`;
+                   }
+               }
+           } else {
+               document.getElementById("timer").textContent = "Writing resumes Monday at 8:00 PM.";
+           }
+       }
 */
-        function startConfetti() {
-            const confettiContainer = document.getElementById("confetti");
-            confettiContainer.innerHTML = '';
-            for (let i = 0; i < 100; i++) {
-                const confetti = document.createElement("div");
-                confetti.className = "confetti";
-                confetti.style.left = `${Math.random() * 100}vw`;
-                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-                confetti.style.animationDelay = `${Math.random() * 5}s`;
-                confettiContainer.appendChild(confetti);
-            }
-            setTimeout(() => {
-                confettiContainer.innerHTML = "";
-            }, 5000);
-        }
+       function startConfetti() {
+           const confettiContainer = document.getElementById("confetti");
+           confettiContainer.innerHTML = '';
+           for (let i = 0; i < 100; i++) {
+               const confetti = document.createElement("div");
+               confetti.className = "confetti";
+               confetti.style.left = `${Math.random() * 100}vw`;
+               confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+               confetti.style.animationDelay = `${Math.random() * 5}s`;
+               confettiContainer.appendChild(confetti);
+           }
+           setTimeout(() => {
+               confettiContainer.innerHTML = "";
+           }, 5000);
+       }
 
-       /* // Update the timer every second
-        setInterval(updateTimer, 1000);
+      /* // Update the timer every second
+       setInterval(updateTimer, 1000);
 
-        // Initial update
-        updateTimer();*/
-        startConfetti();
-  </script>
-
-  <script src="../extra/unirObjetos.js"></script>
+       // Initial update
+       updateTimer();*/
+       startConfetti();
+ </script>
 
 </body>
 </html>
