@@ -130,4 +130,9 @@ body {
     .title_h1,.title_h2 {
         width: 100%;
     }
+
+    #h2CT_title {
+        padding: 15px;
+        font-size: small;
+    }
 }
