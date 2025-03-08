@@ -1,9 +1,8 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
 .title_h1 {
     font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;
@@ -12,4 +11,6 @@ body {
     font-variation-settings: "wdth" 100;
     background-color: rgb(140, 197, 247);
     width: 50%;
+    text-align: center;
+    margin: auto;
 }
