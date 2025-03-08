@@ -126,4 +126,8 @@ body {
       flex-direction: column;
       height: auto;
     }
+
+    .title_h1,.title_h2 {
+        width: 100%;
+    }
 }
