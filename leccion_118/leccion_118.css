@@ -120,3 +120,10 @@ body {
     border-radius: 0px 0px 5px 5px;
     padding: 10px;
 }
+
+@media only screen and (max-width: 600px) {
+    .contenido {
+      flex-direction: column;
+      height: auto;
+    }
+}
