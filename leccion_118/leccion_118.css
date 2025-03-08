@@ -61,3 +61,62 @@ body {
     margin: 10px auto;
     border-radius: 0px 0px 5px 5px;
 }
+
+.title_h2 {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight:100;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    background-color: rgb(140, 197, 247);
+    width: 50%;
+    text-align: center;
+    margin: 10px auto;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.contenido {
+    width: 70%;
+    height: 500px;
+    border: 1px solid rgb(54, 74, 92);
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.contenidoSubContainer {
+    width: 50%;
+    height: auto;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.btnig {
+    background-color: rgb(243, 121, 192);
+    padding: 5px;
+    transition: all .5s;
+    color: rgb(245, 229, 236);
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.btnig:hover {
+    color: rgb(94, 67, 87);
+}
+
+.footer {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight:900;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    background-color: rgb(140, 197, 247);
+    width: 50%;
+    text-align: center;
+    margin: 10px auto;
+    border-radius: 0px 0px 5px 5px;
+    padding: 10px;
+}
