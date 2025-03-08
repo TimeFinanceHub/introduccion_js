@@ -3,6 +3,52 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+
+.MiLogo {
+    background-color: rgb(140, 197, 247);
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    margin: 5px auto;
+    background-image: url("../IntroduccionJS/logo/logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.htmlcssjsLogo {
+    background-color: rgb(140, 197, 247);
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    margin: 5px auto;
+    background-image: url("../IntroduccionJS/logo/logohjc.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.jsLogo {
+    background-color: rgb(140, 197, 247);
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    margin: 5px auto;
+    background-image: url("../IntroduccionJS/logo/logojs.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.logosContainer {
+    width: 350px;
+    height: 150px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .title_h1 {
     font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;
@@ -12,5 +58,6 @@ body {
     background-color: rgb(140, 197, 247);
     width: 50%;
     text-align: center;
-    margin: auto;
+    margin: 10px auto;
+    border-radius: 0px 0px 5px 5px;
 }
