@@ -100,7 +100,8 @@ de forma automatica en el contenedor.
     justify-content: center;
     align-items: center;
     padding: 10px;
-    overflow: scroll;
+    /*overflow: scroll;*/
+    flex-wrap: wrap;
 }
 
 .contenidoSubContainer {
