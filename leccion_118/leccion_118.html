@@ -22,7 +22,7 @@
     <main class="contenido">
         <div class="contenidoSubContainer">
             <h2 class="title_h2">Qu&eacute; es un array (arreglo) ?</h2>
-            <p>
+            <p class="parrafo">
                 En pocas palabras un arreglo en JavaScript<br>
                 es una variable que puede contener distintos<br>
                 tipos de datos y tiene una sintaxis similar <br>
@@ -53,7 +53,7 @@
             <h2 class="title_h2">
                 Enumeracion de los arreglos y como acceder a cada indice ?
             </h2>
-            <p>
+            <p class="parrafo">
                 <b>Que es un indice ?</b>
                 en JavaScript los arreglos son <br>
                 variables de variables. ? que quiere decir eso.<br>
@@ -86,6 +86,33 @@
                 <em>estoEsUnArreglo[0];</em><br>
                 y puede mostrar el resultado por consola <br>
                 utilizando la funcion console.log(estoEsUnArreglo[0]);
+            </p>
+            <p class="parrafo">
+                <b>Cuantos elementos tiene un arreglo ?</b><br>
+                Para saber de una forma rapida cuantos indices<br>
+                o posiciones tiene un arreglo (su longitud)<br>
+                Utilizamos la funcion length :<br>
+                <em>
+                    console.log(estoEsUnArreglo.length);
+                </em>
+            </p>
+            <p class="parrafo">
+                Para acceder a todos y cada uno de <br>
+                los elementos sin necesidad de hacer <br>
+                <pre>
+                    un console.log(estoEsUnArreglo[0]);
+                    console.log(estoEsUnArreglo[0]);
+                    console.log(estoEsUnArreglo[0]);
+                </pre><br>
+                por cada elemento, utilizamos un iterador,<br>
+                o estructura de control. forEach de la siguiente manera :<br>
+                <pre style="font-size: small;">
+                    estoEsUnArreglo.forEach( function( item ) {
+                        console.log(item);
+                    } );
+                </pre>
+                <br>
+                <img src="./imgs/image3.png" alt="image" width="100%">
             </p>
         </div>
     </div>

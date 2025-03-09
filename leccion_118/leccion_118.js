@@ -1,3 +1,5 @@
 const estoEsUnArreglo = [10,"diez",true];
 
-console.table(estoEsUnArreglo);
+estoEsUnArreglo.forEach( function( item ) {
+    console.log(item);
+} );
