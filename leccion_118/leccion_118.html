@@ -118,6 +118,141 @@
         </div>
     </div>
 
+    <h2 class="title_h2">Funciones | Methods , para arreglos</h2>
+
+    <div class="contenido">
+        <div class="contenidoSubContainer">
+            <h2 class="title_h2">
+                C&oacute;mo agregar m&aacute;s elementos a un arreglo ?
+            </h2>
+            <p class="parrafo">
+                el metodo <b>push</b> es utilizado <br>
+                en javascript para agregar uno o m&aacute;s elementos a un <br>
+                arreglo sin importar su longitud y esta funci&oacute;n <br>
+                agrega los elementos al final. Ejemplo :<br>
+                <em>
+                    estoEsUnArreglo.push(20);<br>
+                    estoEsUnArreglo.push(30,40);
+                </em><br>
+                <b>
+                    Una forma mas correcta de agregar elementos
+                    al arreglo seria utilizando el rest operator
+                </b><br><br>
+                <em>
+                    const otroArreglo = [...estoEsUnArreglo,20,30]; o <br>
+                    const otroArreglo = [20,30,...estoEsUnArreglo]; <br>
+                    para el inicio , esto es asi porque recuerda que hoy en dia 
+                    la recomendacion es no modificar los valores o el arreglo original.
+                </em>
+            </p>
+        </div>
+        <div class="contenidoSubContainer">
+            <h2 class="title_h2">
+                C&oacute;mo agregar m&aacute;s elementos a un arreglo al inicio?
+            </h2>
+            <p class="parrafo">
+                el metodo <b>unshift</b> es utilizado <br>
+                en javascript para agregar uno o m&aacute;s elementos a un <br>
+                arreglo sin importar su longitud y esta funci&oacute;n <br>
+                agrega los elementos al inicio. Ejemplo :<br>
+                <em>
+                    estoEsUnArreglo.unshift(20);<br>
+                    estoEsUnArreglo.unshift(50,60);
+                </em>
+            </p>
+        </div>
+        <div class="contenidoSubContainer">
+            <h2 class="title_h2">
+                Para eliminar
+            </h2>
+            <p class="parrafo">
+                Para eliminar el ultimo elemento de un arreglo 
+                se utiliza el metodo o funcion pop
+                <em>
+                    estoEsUnArreglo.pop();
+                </em>
+            </p>
+        </div>
+    </div>
+
+    <h2 class="title_h2">M&aacute;s m&eacute;todos</h2>
+
+    <div class="contenido">
+        <div class="contenidoSubContainer">
+            <h2 class="title_h2">
+                Para eliminar uno o m&aacute;s elementos en especifico
+            </h2>
+            <p class="parrafo">
+                Para eliminar elementos de un arreglo 
+                se utiliza el metodo o funcion splice
+                esta funcion necesita dos argumentos 
+                el primero es el indice o posici&oacute;n del 
+                elemento en el arreglo que se quiera eliminar 
+                y el segundo la cantidad de elmentos a eliminar 
+                a partir de esa posici&oacute;n.
+                <em>
+                    estoEsUnArreglo.splice(1,1);
+                </em>
+            </p>
+        </div>
+        <div class="contenidoSubContainer">
+            <h2 class="title_h2">
+                Para eliminar el primer elemento
+            </h2>
+            <p class="parrafo">
+                Para eliminar el primer elemento de un arreglo 
+                se utiliza el metodo o funcion shift
+                <em>
+                    estoEsUnArreglo.shift();
+                </em>
+            </p>
+        </div>
+    </div>
+
+    <h2 class="title_h2">includes(), reduce(), some() & filter()</h2>
+
+    <div class="contenido">
+        <div class="contenidoSubContainer">
+            <h2 class="title_h2">Dato curioso</h2>
+            <p class="parrafo">
+                en javascript no existen los arreglo asociativos.<br>
+                el equivalente seria un arreglo de objetos [{},{}]
+            </p>
+        </div>
+        <h2 class="title_h2">array methods</h2>
+        <div class="contenidoSubContainer">
+            <ul class="list">
+                <li>
+                    <p class="parrafo">
+                        en javascript tenemos dos metodos 
+                        para simplificar la iteracion de un 
+                        forEach para averiguar si un valor existe en un 
+                        arreglo , para un arreglo con valores distintos a objetos 
+                        se utiliza <b>includes()</b> para objetos se utiliza <b>some()</b>
+                    </p>
+                    <p class="parrafo">
+                        resultado = arregloDeObjetos.some(function(itemAbuscar) {<br>
+                            &nbsp;&nbsp;return itemAbuscar.propiedad === "valor";<br>
+                        }) ;<br><br>
+                        si lo anterior se cumple recibiremos true por resultado.
+                    </p>
+                    <p class="parrafo">
+                        <h2 class="title_h2">ejemplo de sumar precios</h2>
+                        resultado = arregloDeObjetos.reduce(function(variableTotal,itemAbuscar) {<br>
+                            &nbsp;&nbsp;return variableTotal + itemAbuscar.propiedad;<br>
+                        }, valorInicial(0));
+                    </p>
+                    <p class="parrafo">
+                        <h2 class="title_h2">ejemplo para filtrar elementos</h2>
+                        resultado = arregloDeObjetos.filter(function(itemAbuscar) {<br>
+                            &nbsp;&nbsp;return itemAbuscar.propiedad condicion valor;<br>
+                        });
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <footer class="footer">
         @ramirogglez31 <a href="https://instagram.com/ramirogglez31" class="btnig">follow</a>
     </footer>

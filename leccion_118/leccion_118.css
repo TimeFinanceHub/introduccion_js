@@ -75,6 +75,15 @@ body {
     border-radius: 0px 0px 5px 5px;
 }
 
+/*
+ nota que al agregar 
+ demasiados elementos en el 
+ contenedor 'contenido'
+ la propiedad overflow
+ no sera suficiente para una correcta 
+ visualizacion.
+*/
+
 .contenido {
     width: 70%;
     height: 500px;
