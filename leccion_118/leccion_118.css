@@ -183,4 +183,12 @@ body {
     .parrafo {
         overflow: scroll;
     }
+
+    .list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        overflow: scroll;
+    }
 }
