@@ -178,4 +178,8 @@ body {
     .arreglo > div > span {
         margin-left: 86%;
     }
+
+    .parrafo {
+        overflow: scroll;
+    }
 }
