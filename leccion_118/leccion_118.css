@@ -121,6 +121,37 @@ body {
     padding: 10px;
 }
 
+.arreglo {
+    border: 3px solid #000;
+    width: 90%;
+    height: 50px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+}
+
+.arreglo > div {
+    width: 33%;
+    height: 40px;
+    border: 1px solid #4d3e3e;
+    margin: auto 2px;
+    position: relative;
+}
+
+.arreglo > div > span {
+    width: 15px;
+    height: 15px;
+    border: 1px solid #5ed63a;
+    position: absolute;
+    margin-left: 82%;
+    margin-top: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media only screen and (max-width: 600px) {
     .contenido {
       flex-direction: column;
@@ -133,5 +164,18 @@ body {
 
     #h2CT_title {
         font-size: small;
+    }
+
+    .arreglo {
+        flex-direction: column;
+        height: 100px;
+    }
+
+    .arreglo > div {
+        width: 100%;
+    }
+
+    .arreglo > div > span {
+        margin-left: 86%;
     }
 }
