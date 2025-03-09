@@ -81,7 +81,14 @@ body {
  contenedor 'contenido'
  la propiedad overflow
  no sera suficiente para una correcta 
- visualizacion.
+ visualizacion. 
+
+Para Solucionar este inconveniente
+utiliza flex-warp:wrap; y comente
+la linea del overflow para que
+el contenido orgaize los elementos
+de forma automatica en el contenedor.
+
 */
 
 .contenido {
