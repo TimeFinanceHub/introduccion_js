@@ -84,7 +84,7 @@ body {
  visualizacion. 
 
 Para Solucionar este inconveniente
-utiliza flex-warp:wrap; y comente
+utiliza flex-wrap:wrap; y comente
 la linea del overflow para que
 el contenido orgaize los elementos
 de forma automatica en el contenedor.
@@ -100,11 +100,12 @@ de forma automatica en el contenedor.
     justify-content: center;
     align-items: center;
     padding: 10px;
-    overflow: scroll;
+    /*overflow: scroll;*/
+    flex-wrap: wrap;
 }
 
 .contenidoSubContainer {
-    width: 50%;
+    width: 45%;
     height: auto;
     margin: 10px;
     padding: 10px;
